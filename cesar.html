@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cargarSelect(){
+            const select = document.getElementsByTagName("select");
+            for(let i = 0; i < select.length; i++){
+                for(let j = 0; j < 26; j++){
+                    let option = document.createElement("option");
+                    option.value = j;
+                    option.textContent = j;
+                    select[i].appendChild(option);
+                }
+            }
+        }
+
+        function convertirMayusculas(textarea){
+            textarea.value = textarea.value.toUpperCase();
+
+        } 
+        //Permitir solo letras de A a Z mayusculas, espacio, enter y borrar
+        function sinNumeros(textarea){
+            const keyCode = event.keyCode || event.wich;
+            const  tecla = String.fromCharCode(keyCode);
+            const letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if(letras.indexOf(tecla) == -1){
+                event.preventDefault();
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="cesar.css">
+</head>
+<body onload="cargarSelect()">
+    <h1>Algoritmo de cifrado Julio Cesar</h1>
+    <p className="primer">
+        Mensaje
+    </p>
+    <textarea name="text" id="text" rows="10" cols="30" onkeyup="convertirMayusculas(this)" onkeypress="sinNumeros(this)">
+    </textarea>
+    <br>
+    key:
+    <select name="se" id=""></select>
+    <select name="" id=""></select>
+    <select name="" id=""></select>
+    <select name="" id=""></select>
+    <select name="" id=""></select>
+    <select name="" id=""></select>
+
+    <input type="button" value="ejemplo">
+    <input type="button" value="encriptar">
+    <input type="button" value="guardar">
+
+    <br>
+    <p>Cifrado</p>
+    <textarea name="" rows="10" id="" disabled></textarea>
+</body>
+</html>
